@@ -1,18 +1,43 @@
+import React, { useEffect, useState } from 'react';
+import Pagination from '@material-ui/lab/Pagination';
+import { makeStyles } from '@material-ui/core/styles';
 import { faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
 import Image from '../../images/profile.png';
 import SinglePost from '../SinglePost/SinglePost';
 import './Main.css';
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& > *': {
+        marginTop: theme.spacing(2),
+        },
+    },
+}));
+
 const Main = () => {
     const [posts, setPosts] = useState([]);
+
+    const shuffle = a => {
+        for (let i = a.length; i; i--) {
+            let j = Math.floor(Math.random() * i);
+            [a[i - 1], a[j]] = [a[j], a[i - 1]];
+        }
+        setPosts(a);
+    }
+
     useEffect(()=>{
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(res => res.json())
-            .then(data => setPosts(data))
+            .then(data => shuffle(data))
     }, []);
-    console.log(posts[0]);
+    
+    const classes = useStyles();
+    const [page, setPage] = useState(1);
+    const handleChange = (event, value) => {
+        setPage(value);
+    };
+    console.log(page);
 
     return (
         <div className="main">
@@ -35,6 +60,11 @@ const Main = () => {
                 {
                     posts.map(post => <SinglePost key={post.id.toString()} post={post} />)
                 }
+                <br/>
+
+                <div className={classes.root}>
+                    <Pagination count={10} variant="outlined" shape="rounded" page={page} onChange={handleChange} />
+                </div>
             </div>
         </div>
     );

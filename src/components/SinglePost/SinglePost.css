@@ -1,0 +1,13 @@
+.singlePost .title {
+    margin-bottom: 5px;
+    color: salmon;
+}
+.singlePost .user-name {
+    color: purple;
+}
+.singlePost .description {
+    text-align: justify;
+}
+.singlePost a {
+    color: goldenrod;
+}

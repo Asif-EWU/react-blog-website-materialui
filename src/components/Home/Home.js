@@ -7,7 +7,7 @@ import './Home.css';
 const Home = () => {
     return (
         <div>
-            <Container  maxWidth="lg">
+            <Container  maxWidth="xl">
                 <div className="container">
                     <Header></Header>
                     <Main></Main>
