@@ -4,13 +4,13 @@ import './Footer.css';
 
 const Footer = () => {
     return (
-        <div className="footer">
+        <footer>
             <Container  maxWidth="lg">
                 <p>
                     <span className="name"> Asif Mohammad</span> &copy; All Rights Reserved.
                 </p>
             </Container>
-        </div>
+        </footer>
     );
 };
 
