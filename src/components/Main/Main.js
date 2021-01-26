@@ -17,20 +17,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Main = () => {
     const [posts, setPosts] = useState([]);
-
-    const shuffle = a => {
-        for (let i = a.length; i; i--) {
-            let j = Math.floor(Math.random() * i);
-            [a[i - 1], a[j]] = [a[j], a[i - 1]];
-        }
-        setPosts(a);
-    }
-
-    useEffect(()=>{
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(res => res.json())
-            .then(data => shuffle(data))
-    }, []);
     
     const classes = useStyles();
     const [page, setPage] = useState(1);
@@ -38,6 +24,16 @@ const Main = () => {
         setPage(value);
     };
     console.log(page);
+
+    useEffect(()=>{
+        const start = (page - 1) * 10;
+        const url = `http://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=10`;
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setPosts(data))
+    }, [page]);
+    
 
     return (
         <div className="main">
@@ -62,7 +58,7 @@ const Main = () => {
                 }
                 <br/>
 
-                <div className={classes.root}>
+                <div style={{float: "right"}} className={classes.root}>
                     <Pagination count={10} variant="outlined" shape="rounded" page={page} onChange={handleChange} />
                 </div>
             </div>
