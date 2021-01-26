@@ -1,0 +1,10 @@
+.profile {
+    width: 15%;
+}
+.profile img {
+    width: 300px;
+    margin-left: -110px;
+}
+.profile .icon {
+    margin-right: 10px;
+}
