@@ -1,0 +1,18 @@
+.main {
+    display: flex;
+    font-size: 1.2rem;
+}
+.main .profile {
+    width: 15%;
+}
+.main .profile img {
+    width: 300px;
+    margin-left: -110px;
+}
+.profile .icon {
+    margin-right: 10px;
+}
+
+.post-list {
+    padding-left: 100px;
+}
