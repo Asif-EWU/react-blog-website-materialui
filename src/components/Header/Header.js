@@ -1,15 +1,15 @@
+import { Container } from '@material-ui/core';
 import React from 'react';
 import { Link } from "react-router-dom";
 import './Header.css';
 
 const Header = () => {
     return (
-        <div className="header">
-            <header>
+        <header>
+            <Container maxWidth="lg">
                 <Link to="/">Asif's Blog</Link>
-            </header>
-            <hr/>
-        </div>
+            </Container>
+        </header>
     );
 };
 

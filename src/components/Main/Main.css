@@ -1,6 +1,8 @@
 .main {
     display: flex;
     font-size: 1.2rem;
+    background-color: white;
+    padding: 20px 200px;
 }
 .post-list {
     padding-left: 100px;

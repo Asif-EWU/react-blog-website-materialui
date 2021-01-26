@@ -1,5 +1,7 @@
 .singlePost .title {
-    margin-bottom: 5px;
+    margin: -10px 0 5px;
+}
+.singlePost .title a {
     color: salmon;
 }
 .singlePost .user-name {

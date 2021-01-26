@@ -1,0 +1,24 @@
+.post-details .container-body {
+    background-color: white;
+    padding: 20px 200px;
+    display: flex;
+}
+.post-details {
+    font-size: 1.2rem;
+}
+.post-details .post-section {
+    padding-left: 100px;
+}
+.post-section .post .title {
+    margin-bottom: 5px;
+    color: salmon;
+}
+.post-section .post .user-name {
+    color: purple;
+}
+.post-section .post .description {
+    text-align: justify;
+}
+.post-section .comments {
+    margin-top: 50px;
+}

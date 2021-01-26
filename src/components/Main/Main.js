@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import SinglePost from '../SinglePost/SinglePost';
 import './Main.css';
 import Profile from '../Profile/Profile';
+import { Container } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,20 +34,22 @@ const Main = () => {
     
 
     return (
-        <div className="main">
-            <Profile />
-            
-            <div className="post-list">
-                {
-                    posts.map(post => <SinglePost key={post.id.toString()} post={post} />)
-                }
-                <br/>
+        <Container  maxWidth="xl">
+            <div className="main">
+                <Profile />
 
-                <div style={{float: "right"}} className={classes.root}>
-                    <Pagination count={10} variant="outlined" shape="rounded" page={page} onChange={handleChange} />
+                <div className="post-list">
+                    {
+                        posts.map(post => <SinglePost key={post.id.toString()} post={post} />)
+                    }
+                    <br/>
+
+                    <div style={{float: "right"}} className={classes.root}>
+                        <Pagination count={10} variant="outlined" shape="rounded" page={page} onChange={handleChange} />
+                    </div>
                 </div>
             </div>
-        </div>
+        </Container>
     );
 };
 

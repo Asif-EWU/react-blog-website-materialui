@@ -17,7 +17,11 @@ const SinglePost = (props) => {
 
     return (
         <div className="singlePost">
-            <h2 className="title">{title}</h2>        
+            <h2 className="title">
+                <Link to={"/post/" + id}>
+                    {title}
+                </Link>
+            </h2>        
             <small className="user-name">{userName}</small>
             <p className="description">{subBody} ... </p>
             <Link to={"/post/" + id}>see more</Link>

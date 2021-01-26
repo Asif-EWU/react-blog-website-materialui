@@ -1,0 +1,22 @@
+.comment {
+    background-color: snow;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+.comment .user {
+    display: flex;
+}
+.user-image {
+    margin-right: 20px;
+}
+.user-image img {
+    width: 60px;
+    border-radius: 100%;
+}
+.user-info .user-name {
+    margin: 0;
+    color: purple;
+}
+.user-info .email {
+    margin: 10px 0 0;
+}
