@@ -13,28 +13,23 @@ const PostDetails = () => {
     const userId = post.userId;
 
     useEffect(() => {
-        const url = `https://jsonplaceholder.typicode.com/posts/${postId}`;
+        const url1 = `https://jsonplaceholder.typicode.com/posts/${postId}`;
+        const url2 = `https://jsonplaceholder.typicode.com/users/${userId}`;
+        const url3 = `https://jsonplaceholder.typicode.com/posts/${postId}/comments`;
 
-        fetch(url)
+        fetch(url1)
             .then(res => res.json())
             .then(data => setPost(data));
-    }, [postId]);
 
-    useEffect(() => {
-        const url = `https://jsonplaceholder.typicode.com/users/${userId}`;
-
-        fetch(url)
+        userId && 
+        fetch(url2)
             .then(res => res.json())
             .then(data => setUserName(data.name));
-    }, [userId]);
 
-    useEffect(() => {
-        const url = `https://jsonplaceholder.typicode.com/posts/${postId}/comments`;
-
-        fetch(url)  
+        fetch(url3)  
             .then(res => res.json())
             .then(data => setComments(data));
-    }, [postId]);
+    }, [postId, userId]);
     
     return (
         <div className="post-details">
