@@ -25,7 +25,7 @@ const Main = () => {
 
     useEffect(()=>{
         const start = (page - 1) * 10;
-        const url = `http://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=10`;
+        const url = `https://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=10`;
 
         fetch(url)
             .then(res => res.json())
